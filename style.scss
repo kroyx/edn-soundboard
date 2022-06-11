@@ -1,0 +1,8 @@
+@import './src/scss/base/reset',
+        './src/scss/base/base';
+
+@import './src/scss/diagramacion/grid';
+
+@import 'src/scss/componentes/header',
+        './src/scss/componentes/soundboard',
+        './src/scss/componentes/boton';

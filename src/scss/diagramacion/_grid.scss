@@ -1,0 +1,33 @@
+.grid {
+	// --grid-columnas: 1;
+	// --grid-filas: 1;
+	// --grid-max-height: 1200px;
+	// --grid-padding: 1rem;
+
+	// --col-height: 1;
+	// --col-gap: 1rem;
+	// --col-starto: 1;
+
+	// --col-height: 1;
+	// --col-gap: 1rem;
+	// --col-start: 1;
+	@at-root &,
+	[class*="grid--"] {
+		display: grid;
+		column-gap: var(--col-gap, 1rem);
+		row-gap: var(--col-gap, 1rem);
+		grid-template-columns: repeat(var(--grid-columnas, 1), 1fr);
+		grid-template-rows: repeat(var(--grid-filas, 1), 1fr);
+		max-width: var(--grid-max-width, 1200px);
+		height: 100%;
+		margin: auto;
+		padding: 0 var(--grid-padding, 1rem);
+
+		& > * {
+			grid-column-start: var(--col-start);
+			grid-column-end: span var(--col-height, 1);
+			grid-row-start: var(--col-starto);
+			grid-row-end: span var(--col-height, 1);
+		}
+	}
+}

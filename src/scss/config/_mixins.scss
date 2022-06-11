@@ -1,0 +1,10 @@
+@use "sass:string";
+
+@mixin mem {
+  $mem: string.slice(#{&}, 2);
+
+  @at-root &,
+  [class*="#{$mem}--"] {
+    @content;
+  }
+}

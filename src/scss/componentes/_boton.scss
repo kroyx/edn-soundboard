@@ -1,0 +1,21 @@
+.boton {
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: #a6a400 0 5px 0px, rgba(0,0,0,.4) 0 -5px 5px;
+
+  background-color: #d9d600;
+  color: #333;
+  text-align: center;
+  transition: all .2s;
+
+  &.activo {
+    box-shadow: #a6a400 0 0px 0px;
+    transform: translateY(5px);
+    color: #cb005d;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #cb005d;
+  }
+}
+
