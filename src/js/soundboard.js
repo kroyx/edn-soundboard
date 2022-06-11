@@ -7,7 +7,7 @@ const $logo = document.querySelector('#logo');
 const sonidosAleatorios = sonidos.sort(() => 0.5 - Math.random());
 
 const etiquetasAudio = sonidos.map((sonido) => `
-  <audio id="${sonido.archivo}" src="audios/${sonido.archivo}.mp3"></audio>
+  <audio id="${sonido.archivo}" src="audios/${sonido.archivo}.mp3" preload="auto"></audio>
 `).join(' ');
 const etiquetasBoton = sonidosAleatorios.map((sonido) => `
   <button class="boton" data-sonido="${sonido.archivo}">${sonido.titulo}</button>
