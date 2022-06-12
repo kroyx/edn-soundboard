@@ -42,14 +42,14 @@ const urlsToCache = [
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-        console.log('instalando cache : ' + CACHE_NAME)
-        return cache.addAll(urlsToCache);
-    })
+      console.log('instalando cache : ' + CACHE_NAME)
+      return cache.addAll(urlsToCache);
+    }),
   );
 });
 
 self.addEventListener('activate', (e) => {
-  const cacheWhiteList = [ CACHE_NAME ];
+  const cacheWhiteList = [CACHE_NAME];
   e.waitUntil(
     caches.keys()
       .then((cacheNames) => {
@@ -57,20 +57,20 @@ self.addEventListener('activate', (e) => {
           if (cacheWhiteList.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
-        })
+        });
       })
       .then(() => self.clients.claim())
-  )
+  );
 });
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request)
-    .then((res) => {
-      if (res) {
-        return res;
-      }
-      return fetch(e.request)
-    })
-  )
+      .then((res) => {
+        if (res) {
+          return res;
+        }
+        return fetch(e.request);
+      }),
+  );
 });

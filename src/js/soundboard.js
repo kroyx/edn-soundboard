@@ -21,8 +21,8 @@ const detenerSonidos = () => {
     const $audio = document.querySelector(`#${sonido.archivo}`);
     $audio.pause();
     $audio.currentTime = 0;
-  })
-}
+  });
+};
 
 $soundboard.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
